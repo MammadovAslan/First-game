@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#game {
+  background-image: url(https://wallpapercave.com/wp/wp7619435.jpg);
+  background-size: contain;
+  margin: 100px auto;
+  height: 300px;
+  width: 1000px;
+  border: 1px solid #000;
+  overflow: hidden;
+  #character {
+    img {
+      height: 100px;
+      width: 100px;
+    }
+    position: relative;
+    top: 165px;
+  }
+  #block {
+    img {
+      width: 50px;
+      height: 50px;
+    }
+    position: relative;
+    top: 105px;
+    left: 950px;
+    animation: slide 1s infinite linear;
+  }
+
+  #gameOver {
+    display: none;
+    font-size: 90px;
+    text-align: center;
+    color: red;
+    font-family: Arial;
+    position: relative;
+    animation: over 1500ms infinite linear;
+    &:before {
+      content: "";
+      width: 100px;
+      height: 50px;
+      border: 5px solid red;
+      position: absolute;
+      left: 250px;
+      border-bottom: none;
+      border-right: none;
+    }
+    &:after {
+      content: "";
+      width: 100px;
+      height: 50px;
+      border: 5px solid red;
+      position: absolute;
+      left: 650px;
+      top: 50px;
+      border-top: none;
+      border-left: none;
+    }
+  }
+
+  @keyframes over {
+    0% {
+      rotate: 0deg;
+    }
+
+    30% {
+      rotate: 5deg;
+    }
+
+    50% {
+      rotate: 0deg;
+    }
+
+    75% {
+      rotate: -5deg;
+    }
+    100% {
+      rotate: 0deg;
+    }
+  }
+
+  @keyframes slide {
+    0% {
+      left: 950px;
+    }
+    100% {
+      left: -100px;
+    }
+  }
+
+  @keyframes jump {
+    0% {
+      top: 165px;
+    }
+
+    30% {
+      top: 110px;
+    }
+
+    70% {
+      top: 110px;
+    }
+  }
+}
+
+.jump {
+  animation: jump 0.5s infinite;
+}
+
+#counter {
+  margin-left: 300px;
+  width: 500px;
+  height: 100px;
+  #points,
+  #bestscore {
+    font-size: 50px;
+  }
+}
